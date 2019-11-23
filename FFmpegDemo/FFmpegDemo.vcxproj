@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{15849FFB-68EB-4553-A546-44AF3A3FE017}</ProjectGuid>
+    <RootNamespace>FFmpegDemo</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>avcodec.lib;avdevice.lib;avfilter.lib;avformat.lib;avutil.lib;postproc.lib;swresample.lib;swscale.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>XCopy "$(SolutionDir)dll" "$(SolutionDir)$(Configuration)" /i /s /y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="libavcodec\avcodec.h" />
+    <ClInclude Include="libavcodec\avdct.h" />
+    <ClInclude Include="libavcodec\avfft.h" />
+    <ClInclude Include="libavcodec\d3d11va.h" />
+    <ClInclude Include="libavcodec\dirac.h" />
+    <ClInclude Include="libavcodec\dv_profile.h" />
+    <ClInclude Include="libavcodec\dxva2.h" />
+    <ClInclude Include="libavcodec\jni.h" />
+    <ClInclude Include="libavcodec\mediacodec.h" />
+    <ClInclude Include="libavcodec\qsv.h" />
+    <ClInclude Include="libavcodec\vaapi.h" />
+    <ClInclude Include="libavcodec\vda.h" />
+    <ClInclude Include="libavcodec\vdpau.h" />
+    <ClInclude Include="libavcodec\version.h" />
+    <ClInclude Include="libavcodec\videotoolbox.h" />
+    <ClInclude Include="libavcodec\vorbis_parser.h" />
+    <ClInclude Include="libavcodec\xvmc.h" />
+    <ClInclude Include="libavdevice\avdevice.h" />
+    <ClInclude Include="libavdevice\version.h" />
+    <ClInclude Include="libavfilter\avfilter.h" />
+    <ClInclude Include="libavfilter\avfiltergraph.h" />
+    <ClInclude Include="libavfilter\buffersink.h" />
+    <ClInclude Include="libavfilter\buffersrc.h" />
+    <ClInclude Include="libavfilter\version.h" />
+    <ClInclude Include="libavformat\avformat.h" />
+    <ClInclude Include="libavformat\avio.h" />
+    <ClInclude Include="libavformat\version.h" />
+    <ClInclude Include="libavutil\adler32.h" />
+    <ClInclude Include="libavutil\aes.h" />
+    <ClInclude Include="libavutil\aes_ctr.h" />
+    <ClInclude Include="libavutil\attributes.h" />
+    <ClInclude Include="libavutil\audio_fifo.h" />
+    <ClInclude Include="libavutil\avassert.h" />
+    <ClInclude Include="libavutil\avconfig.h" />
+    <ClInclude Include="libavutil\avstring.h" />
+    <ClInclude Include="libavutil\avutil.h" />
+    <ClInclude Include="libavutil\base64.h" />
+    <ClInclude Include="libavutil\blowfish.h" />
+    <ClInclude Include="libavutil\bprint.h" />
+    <ClInclude Include="libavutil\bswap.h" />
+    <ClInclude Include="libavutil\buffer.h" />
+    <ClInclude Include="libavutil\camellia.h" />
+    <ClInclude Include="libavutil\cast5.h" />
+    <ClInclude Include="libavutil\channel_layout.h" />
+    <ClInclude Include="libavutil\common.h" />
+    <ClInclude Include="libavutil\cpu.h" />
+    <ClInclude Include="libavutil\crc.h" />
+    <ClInclude Include="libavutil\des.h" />
+    <ClInclude Include="libavutil\dict.h" />
+    <ClInclude Include="libavutil\display.h" />
+    <ClInclude Include="libavutil\downmix_info.h" />
+    <ClInclude Include="libavutil\error.h" />
+    <ClInclude Include="libavutil\eval.h" />
+    <ClInclude Include="libavutil\ffversion.h" />
+    <ClInclude Include="libavutil\fifo.h" />
+    <ClInclude Include="libavutil\file.h" />
+    <ClInclude Include="libavutil\frame.h" />
+    <ClInclude Include="libavutil\hash.h" />
+    <ClInclude Include="libavutil\hmac.h" />
+    <ClInclude Include="libavutil\hwcontext.h" />
+    <ClInclude Include="libavutil\hwcontext_cuda.h" />
+    <ClInclude Include="libavutil\hwcontext_dxva2.h" />
+    <ClInclude Include="libavutil\hwcontext_vaapi.h" />
+    <ClInclude Include="libavutil\hwcontext_vdpau.h" />
+    <ClInclude Include="libavutil\imgutils.h" />
+    <ClInclude Include="libavutil\intfloat.h" />
+    <ClInclude Include="libavutil\intreadwrite.h" />
+    <ClInclude Include="libavutil\lfg.h" />
+    <ClInclude Include="libavutil\log.h" />
+    <ClInclude Include="libavutil\lzo.h" />
+    <ClInclude Include="libavutil\macros.h" />
+    <ClInclude Include="libavutil\mastering_display_metadata.h" />
+    <ClInclude Include="libavutil\mathematics.h" />
+    <ClInclude Include="libavutil\md5.h" />
+    <ClInclude Include="libavutil\mem.h" />
+    <ClInclude Include="libavutil\motion_vector.h" />
+    <ClInclude Include="libavutil\murmur3.h" />
+    <ClInclude Include="libavutil\opt.h" />
+    <ClInclude Include="libavutil\parseutils.h" />
+    <ClInclude Include="libavutil\pixdesc.h" />
+    <ClInclude Include="libavutil\pixelutils.h" />
+    <ClInclude Include="libavutil\pixfmt.h" />
+    <ClInclude Include="libavutil\random_seed.h" />
+    <ClInclude Include="libavutil\rational.h" />
+    <ClInclude Include="libavutil\rc4.h" />
+    <ClInclude Include="libavutil\replaygain.h" />
+    <ClInclude Include="libavutil\ripemd.h" />
+    <ClInclude Include="libavutil\samplefmt.h" />
+    <ClInclude Include="libavutil\sha.h" />
+    <ClInclude Include="libavutil\sha512.h" />
+    <ClInclude Include="libavutil\stereo3d.h" />
+    <ClInclude Include="libavutil\tea.h" />
+    <ClInclude Include="libavutil\threadmessage.h" />
+    <ClInclude Include="libavutil\time.h" />
+    <ClInclude Include="libavutil\timecode.h" />
+    <ClInclude Include="libavutil\timestamp.h" />
+    <ClInclude Include="libavutil\tree.h" />
+    <ClInclude Include="libavutil\twofish.h" />
+    <ClInclude Include="libavutil\version.h" />
+    <ClInclude Include="libavutil\xtea.h" />
+    <ClInclude Include="libpostproc\postprocess.h" />
+    <ClInclude Include="libpostproc\version.h" />
+    <ClInclude Include="libswresample\swresample.h" />
+    <ClInclude Include="libswresample\version.h" />
+    <ClInclude Include="libswscale\swscale.h" />
+    <ClInclude Include="libswscale\version.h" />
+    <ClInclude Include="mp4convert\FFMpegHeader.h" />
+    <ClInclude Include="mp4convert\FFMpegUtil.h" />
+    <ClInclude Include="mp4convert\AudioResample.hpp" />
+    <ClInclude Include="mp4convert\AV.hpp" />
+    <ClInclude Include="mp4convert\CustomAVFilter.hpp" />
+    <ClInclude Include="mp4convert\TransCode.hpp" />
+    <ClInclude Include="mp4convert\VideoCoverImage.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="FFmpegDemo.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
