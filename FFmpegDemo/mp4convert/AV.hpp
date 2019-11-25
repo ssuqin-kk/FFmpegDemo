@@ -153,7 +153,7 @@ protected:
 		info3 = 0;
 
 		while (!StartCodeFound) {
-			if (pos >= packet.size) {
+			if (pos + offset >= packet.size) {
 				nalu->len = pos - nalu->startcodeprefix_len;
 				memcpy(nalu->buf, &packet.data[offset + nalu->startcodeprefix_len], nalu->len);
 				nalu->forbidden_bit = (nalu->buf[0] & 0x80) >> 7; //1 bit
